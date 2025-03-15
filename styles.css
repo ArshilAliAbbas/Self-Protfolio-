@@ -1,0 +1,542 @@
+:root {
+  --neon-blue: #00ffff; /* Neon blue */
+  --neon-blue-dark: #007777; /* Darker neon blue */
+  --background-color: #000000; /* Black background */
+  --text-color: #ffffff; /* White text */
+  --header-gradient: linear-gradient(
+    45deg,
+    var(--neon-blue),
+    var(--neon-blue-dark)
+  );
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  cursor: none; /* Hide default cursor */
+}
+
+/* Night Sky Background */
+#night-sky {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: var(--background-color);
+  z-index: -1;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Shooting Star Pointer */
+#shooting-star {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+}
+
+#shooting-trail {
+  position: fixed;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff);
+  pointer-events: none;
+  z-index: 9999;
+  transform-origin: left;
+  transform: rotate(-45deg) translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* Landing Page */
+#landing {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+#landing-name {
+  font-size: 4rem;
+  margin: 0;
+  background: var(--header-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 2s ease-in-out;
+}
+
+#landing-tagline {
+  font-size: 1.5rem;
+  color: var(--neon-blue);
+  margin-top: 10px;
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Sections */
+.section {
+  padding: 100px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.content {
+  max-width: 1200px;
+  width: 100%;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--neon-blue);
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.skill {
+  background: rgba(0, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill img {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 10px var(--neon-blue));
+  transition: transform 0.3s ease-out, filter 0.3s ease-out;
+}
+
+.skill:hover img {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 20px var(--neon-blue));
+}
+
+/* Experience Grid */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.experience-item {
+  background: rgba(0, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--neon-blue);
+  transition: 0.3s;
+}
+
+.experience-item:hover {
+  background: rgba(0, 255, 255, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--neon-blue);
+  border-color: var(--neon-blue-dark);
+}
+
+.experience-item h3 {
+  font-size: 1.5rem;
+  color: var(--neon-blue);
+  margin-bottom: 10px;
+}
+
+.experience-item .company {
+  font-size: 1.1rem;
+  color: var(--neon-blue-dark);
+  margin-bottom: 10px;
+}
+
+.experience-item .duration,
+.experience-item .location {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.experience-item .description {
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Contact Me Section */
+#contact a {
+  color: var(--neon-blue);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#contact a:hover {
+  text-shadow: 0 0 10px var(--neon-blue);
+}
+
+/* Let's Connect Button */
+.connect-button {
+  background: var(--header-gradient);
+  color: var(--background-color);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.connect-button:hover {
+  background: var(--background-color);
+  color: var(--neon-blue);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background: var(--background-color);
+  text-align: center;
+}
+:root {
+  --neon-blue: #00ffff; /* Neon blue */
+  --neon-blue-dark: #007777; /* Darker neon blue */
+  --background-color: #000000; /* Black background */
+  --text-color: #ffffff; /* White text */
+  --header-gradient: linear-gradient(
+    45deg,
+    var(--neon-blue),
+    var(--neon-blue-dark)
+  );
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  cursor: none; /* Hide default cursor */
+}
+
+/* Night Sky Background */
+#night-sky {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: var(--background-color);
+  z-index: -1;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Shooting Star Pointer */
+#shooting-star {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+}
+
+#shooting-trail {
+  position: fixed;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff);
+  pointer-events: none;
+  z-index: 9999;
+  transform-origin: left;
+  transform: rotate(-45deg) translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* Landing Page */
+#landing {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+#landing-name {
+  font-size: 4rem;
+  margin: 0;
+  background: var(--header-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 2s ease-in-out;
+}
+
+#landing-tagline {
+  font-size: 1.5rem;
+  color: var(--neon-blue);
+  margin-top: 10px;
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Sections */
+.section {
+  padding: 100px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.content {
+  max-width: 1200px;
+  width: 100%;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--neon-blue);
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.skill {
+  background: rgba(0, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill img {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 10px var(--neon-blue));
+  transition: transform 0.3s ease-out, filter 0.3s ease-out;
+}
+
+.skill:hover img {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 20px var(--neon-blue));
+}
+
+/* Past Experiences Section */
+#experiences .coming-soon {
+  font-size: 2rem;
+  color: var(--neon-blue);
+  animation: glow 2s infinite;
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* Let's Connect Button */
+.connect-button {
+  background: var(--header-gradient);
+  color: var(--background-color);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.connect-button:hover {
+  background: var(--background-color);
+  color: var(--neon-blue);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background: var(--background-color);
+  text-align: center;
+}
+/* Shooting Star Pointer */
+#shooting-star {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+}
+
+#shooting-trail {
+  position: fixed;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff);
+  pointer-events: none;
+  z-index: 9999;
+  transform-origin: left;
+  opacity: 0;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+/* Glowing Animation for "Coming Soon..." */
+.coming-soon {
+  font-size: 2rem;
+  color: var(--neon-blue);
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.5;
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
+  }
+}
+
+/* Shooting Star Pointer */
+#shooting-star {
+  position: fixed;
+  width: 12px; /* Slightly larger */
+  height: 12px; /* Slightly larger */
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+}
+
+#shooting-trail {
+  position: fixed;
+  width: 150px; /* Longer trail */
+  height: 4px; /* Thicker trail */
+  background: linear-gradient(90deg, transparent, #fff);
+  pointer-events: none;
+  z-index: 9999;
+  transform-origin: left;
+  opacity: 0;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
