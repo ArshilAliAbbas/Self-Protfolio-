@@ -1,4 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Custom Mouse Pointer
+  const customCursor = document.createElement("div");
+  customCursor.id = "custom-cursor";
+  document.body.appendChild(customCursor);
+
+  document.addEventListener("mousemove", (e) => {
+    customCursor.style.left = `${e.clientX}px`;
+    customCursor.style.top = `${e.clientY}px`;
+  });
+
+  document.addEventListener("mousedown", () => {
+    customCursor.classList.add("active");
+  });
+
+  document.addEventListener("mouseup", () => {
+    customCursor.classList.remove("active");
+  });
+
   // Night Sky Falling Stars
   const nightSky = document.getElementById("night-sky");
 
@@ -10,28 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     star.style.animationDuration = `${Math.random() * 2 + 1}s`;
     nightSky.appendChild(star);
   }
-
-  // Shooting Star Pointer
-  const shootingStar = document.getElementById("shooting-star");
-  const shootingTrail = document.getElementById("shooting-trail");
-
-  document.addEventListener("mousemove", (e) => {
-    // Update shooting star position
-    shootingStar.style.left = `${e.clientX}px`;
-    shootingStar.style.top = `${e.clientY}px`;
-
-    // Update shooting trail position and angle
-    const angle = Math.atan2(e.movementY, e.movementX);
-    shootingTrail.style.left = `${e.clientX}px`;
-    shootingTrail.style.top = `${e.clientY}px`;
-    shootingTrail.style.transform = `rotate(${angle}rad) translate(-50%, -50%)`;
-    shootingTrail.style.opacity = "1";
-  });
-
-  document.addEventListener("mouseleave", () => {
-    // Hide the trail when the mouse leaves the window
-    shootingTrail.style.opacity = "0";
-  });
 
   // Smooth Scroll for Navigation Links
   const links = document.querySelectorAll("a[href^='#']");
@@ -50,110 +46,53 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // Contact Form Submission
+  const contactForm = document.getElementById("contact-form");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      // Simulate form submission
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData.entries());
+
+      console.log("Form Data:", data); // For debugging
+
+      // Display success message
+      const successMessage = document.createElement("p");
+      successMessage.textContent = "Your message has been sent successfully!";
+      successMessage.style.color = "#00ffff";
+      successMessage.style.marginTop = "20px";
+      contactForm.appendChild(successMessage);
+
+      // Clear form fields
+      contactForm.reset();
+
+      // Remove success message after 3 seconds
+      setTimeout(() => {
+        successMessage.remove();
+      }, 3000);
+    });
+  }
 });
 document.addEventListener("DOMContentLoaded", () => {
-  // Night Sky Falling Stars
-  const nightSky = document.getElementById("night-sky");
-
-  for (let i = 0; i < 100; i++) {
-    const star = document.createElement("div");
-    star.className = "star";
-    star.style.left = `${Math.random() * 100}%`;
-    star.style.top = `${Math.random() * 100}%`;
-    star.style.animationDuration = `${Math.random() * 2 + 1}s`;
-    nightSky.appendChild(star);
-  }
-
-  // Shooting Star Pointer
-  const shootingStar = document.getElementById("shooting-star");
-  const shootingTrail = document.getElementById("shooting-trail");
+  // Custom Mouse Pointer
+  const customCursor = document.createElement("div");
+  customCursor.id = "custom-cursor";
+  document.body.appendChild(customCursor);
 
   document.addEventListener("mousemove", (e) => {
-    // Update shooting star position
-    shootingStar.style.left = `${e.clientX}px`;
-    shootingStar.style.top = `${e.clientY}px`;
-
-    // Update shooting trail position and angle
-    const angle = Math.atan2(e.movementY, e.movementX);
-    shootingTrail.style.left = `${e.clientX}px`;
-    shootingTrail.style.top = `${e.clientY}px`;
-    shootingTrail.style.transform = `rotate(${angle}rad)`;
-    shootingTrail.style.opacity = "1";
+    customCursor.style.left = `${e.clientX}px`;
+    customCursor.style.top = `${e.clientY}px`;
   });
 
-  document.addEventListener("mouseleave", () => {
-    // Hide the trail when the mouse leaves the window
-    shootingTrail.style.opacity = "0";
+  document.addEventListener("mousedown", () => {
+    customCursor.classList.add("active");
   });
 
-  // Smooth Scroll for Navigation Links
-  const links = document.querySelectorAll("a[href^='#']");
-
-  links.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute("href").substring(1);
-      const targetSection = document.getElementById(targetId);
-
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop - 50,
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-});
-document.addEventListener("DOMContentLoaded", () => {
-  // Night Sky Falling Stars
-  const nightSky = document.getElementById("night-sky");
-
-  for (let i = 0; i < 100; i++) {
-    const star = document.createElement("div");
-    star.className = "star";
-    star.style.left = `${Math.random() * 100}%`;
-    star.style.top = `${Math.random() * 100}%`;
-    star.style.animationDuration = `${Math.random() * 2 + 1}s`;
-    nightSky.appendChild(star);
-  }
-
-  // Shooting Star Pointer
-  const shootingStar = document.getElementById("shooting-star");
-  const shootingTrail = document.getElementById("shooting-trail");
-
-  document.addEventListener("mousemove", (e) => {
-    // Update shooting star position
-    shootingStar.style.left = `${e.clientX}px`;
-    shootingStar.style.top = `${e.clientY}px`;
-
-    // Update shooting trail position and angle
-    const angle = Math.atan2(e.movementY, e.movementX);
-    shootingTrail.style.left = `${e.clientX}px`;
-    shootingTrail.style.top = `${e.clientY}px`;
-    shootingTrail.style.transform = `rotate(${angle}rad)`;
-    shootingTrail.style.opacity = "1";
-  });
-
-  document.addEventListener("mouseleave", () => {
-    // Hide the trail when the mouse leaves the window
-    shootingTrail.style.opacity = "0";
-  });
-
-  // Smooth Scroll for Navigation Links
-  const links = document.querySelectorAll("a[href^='#']");
-
-  links.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute("href").substring(1);
-      const targetSection = document.getElementById(targetId);
-
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop - 50,
-          behavior: "smooth",
-        });
-      }
-    });
+  document.addEventListener("mouseup", () => {
+    customCursor.classList.remove("active");
   });
 });
