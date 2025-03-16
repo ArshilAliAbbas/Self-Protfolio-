@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Custom Mouse Pointer
   const customCursor = document.createElement("div");
   customCursor.id = "custom-cursor";
   document.body.appendChild(customCursor);
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     customCursor.classList.remove("active");
   });
 
-  // Night Sky Falling Stars
   const nightSky = document.getElementById("night-sky");
 
   for (let i = 0; i < 100; i++) {
@@ -29,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     nightSky.appendChild(star);
   }
 
-  // Smooth Scroll for Navigation Links
   const links = document.querySelectorAll("a[href^='#']");
 
   links.forEach((link) => {
@@ -47,30 +44,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Contact Form Submission
   const contactForm = document.getElementById("contact-form");
 
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      // Simulate form submission
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData.entries());
 
       console.log("Form Data:", data); // For debugging
 
-      // Display success message
       const successMessage = document.createElement("p");
       successMessage.textContent = "Your message has been sent successfully!";
       successMessage.style.color = "#00ffff";
       successMessage.style.marginTop = "20px";
       contactForm.appendChild(successMessage);
 
-      // Clear form fields
       contactForm.reset();
 
-      // Remove success message after 3 seconds
       setTimeout(() => {
         successMessage.remove();
       }, 3000);
