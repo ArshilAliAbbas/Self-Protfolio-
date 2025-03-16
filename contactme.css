@@ -21,7 +21,6 @@ body {
   z-index: -1; /* Ensure particles are behind the content */
 }
 
-/* Custom Mouse Pointer */
 #custom-cursor {
   position: fixed;
   width: 8px;

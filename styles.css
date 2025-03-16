@@ -267,7 +267,7 @@ footer {
   color: var(--text-color);
   line-height: 1.6;
 }
-/* Glowing Animation for "Coming Soon..." */
+
 .coming-soon {
   font-size: 2rem;
   color: var(--neon-blue);
@@ -282,5 +282,66 @@ footer {
   100% {
     opacity: 1;
     text-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
+  }
+}
+:root {
+  --neon-blue: #00ffff;
+  --neon-blue-dark: #007777;
+  --background-color: #000000;
+  --text-color: #ffffff;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background: var(--background-color);
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    right: 20px;
+  }
+
+  /* Social Link Styling */
+  .social-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    overflow: hidden;
+    position: relative;
+    padding: 5px;
+  }
+
+  .social-link img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease-out;
+  }
+
+  .social-link span {
+    position: absolute;
+    left: 100%;
+    white-space: nowrap;
+    transition: left 0.3s ease-out;
+    margin-left: 10px;
+    color: var(--neon-blue);
+    opacity: 0;
+  }
+
+  .social-link:hover img {
+    transform: translateX(-100%);
+  }
+
+  .social-link:hover span {
+    left: 40px;
+    opacity: 1;
   }
 }
