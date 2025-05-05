@@ -215,7 +215,6 @@ p {
   box-shadow: 0 0 20px var(--neon-blue);
 }
 
-
 /* Footer */
 footer {
   padding: 20px;
@@ -361,4 +360,20 @@ footer p {
 footer p {
   margin: 0;
   padding: 5px;
+}
+
+.Name {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--neon-blue);
+  text-decoration: none;
+}
+.Name:hover {
+  color: orange;
+}
+.numberEspaniol {
+  font-size: 10px;
+  color: var(--neon-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
