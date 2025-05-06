@@ -377,3 +377,12 @@ footer p {
   text-decoration: none;
   transition: color 0.3s ease;
 }
+.Name2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--neon-purple);
+  text-decoration: none;
+}
+.Name2:hover {
+  color: rgb(4, 21, 214);
+}
