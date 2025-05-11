@@ -386,3 +386,7 @@ footer p {
 .Name2:hover {
   color: rgb(14, 32, 233);
 }
+.NamrAd {
+  text-decoration: none;
+  color: var(--neon-blue);
+}
