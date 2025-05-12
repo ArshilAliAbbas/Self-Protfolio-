@@ -390,3 +390,13 @@ footer p {
   text-decoration: none;
   color: var(--neon-blue);
 }
+
+.name2 {
+  font-size: 24px;
+  color: var(--neon-blue);
+  text-decoration: none;
+}
+
+.name2:hover {
+  color: #2b3cd9b2;
+}
