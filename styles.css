@@ -362,6 +362,10 @@ footer p {
   padding: 5px;
 }
 
+
+
+
+
 .Name {
   font-size: 24px;
   font-weight: bold;
@@ -377,26 +381,39 @@ footer p {
   text-decoration: none;
   transition: color 0.3s ease;
 }
-.Name2 {
+
+
+.edname {
   font-size: 24px;
   font-weight: bold;
   color: var(--neon-purple);
   text-decoration: none;
 }
-.Name2:hover {
+.edname:hover {
   color: rgb(14, 32, 233);
 }
-.NamrAd {
+.edname {
   text-decoration: none;
   color: var(--neon-blue);
 }
-
-.name2 {
+.adnan{
+  text-decoration: none;
+  color:white
+}
+.adnan:hover{
+  color: rgb(8, 185, 67);
+  font-weight: bold;
+}
+.etename {
   font-size: 24px;
-  color: var(--neon-blue);
+  font-weight: bold;
+  color: var(--neon-purple);
   text-decoration: none;
 }
-
-.name2:hover {
-  color: #2b3cd9b2;
+.etename:hover {
+  color: rgb(14, 32, 233);
+}
+.etename{
+  text-decoration: none;
+  color: var(--neon-blue);
 }
