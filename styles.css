@@ -390,7 +390,7 @@ footer p {
   text-decoration: none;
 }
 .edname:hover {
-  color: rgb(14, 32, 233);
+  color: rgba(198, 95, 11, 0.76);
 }
 .edname {
   text-decoration: none;
@@ -411,7 +411,7 @@ footer p {
   text-decoration: none;
 }
 .etename:hover {
-  color: rgb(14, 32, 233);
+  color: rgba(122, 246, 44, 0.835);
 }
 .etename{
   text-decoration: none;
